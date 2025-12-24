@@ -1,48 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SMM Panel - The Google SMM Clone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-<button name="login">Login</button>
-</form>
-<?php
-include 'config.php';
-if(!isset($_SESSION['uid'])) header("Location: login.php");
-?>
-<h2>Dashboard</h2>
-<a href="order.php">New Order</a><br>
-<a href="payment.php">Add Balance</a>
-<?php
-include 'config.php';
-if(isset($_POST['order'])){
-  $sid=$_POST['service'];
-  $link=$_POST['link'];
-  $qty=$_POST['qty'];
-  $uid=$_SESSION['uid'];
+<!-- Navigation -->
+<header>
+    <nav>
+        <div class="logo">The Google SMM</div>
+        <ul class="menu">
+            <li><a href="#login">Sign In</a></li>
+            <li><a href="#signup">Sign Up</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+    </nav>
+</header>
 
-  mysqli_query($conn,"INSERT INTO orders(user_id,service_id,link,quantity)
-  VALUES('$uid','$sid','$link','$qty')");
-}
-$services=mysqli_query($conn,"SELECT * FROM services");
-?>
-<form method="post">
-<select name="service">
-<?php while($s=mysqli_fetch_assoc($services)){ ?>
-<option value="<?=$s['id']?>"><?=$s['service_name']?></option>
-<?php } ?>
-</select><br>
-<input name="link" placeholder="Instagram Link"><br>
-<input name="qty" placeholder="Quantity"><br>
-<button name="order">Submit</button>
-</form>
-<?php
-include 'config.php';
-if(isset($_POST['pay'])){
-  $txn=$_POST['txn'];
-  mysqli_query($conn,"INSERT INTO payments(user_id,upi_txn)
-  VALUES('{$_SESSION['uid']}','$txn')");
-}
-?>
-<h3>Pay via UPI</h3>
-<p>UPI ID: <b>70618712@ibl</b></p>
-<form method="post">
-<input name="txn" placeholder="UPI Transaction ID"><br>
-<button name="pay">Submit</button>
-</form>
+<!-- Hero / Login Section -->
+<section id="login" class="hero">
+    <h1>Boost Your Online Presence!</h1>
+    <form class="login-form">
+        <input type="text" placeholder="Username or Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Sign In</button>
+        <p><a href="#">Forgot Password?</a> | <a href="#signup">Sign Up</a></p>
+    </form>
+</section>
+
+<!-- Why Choose Us -->
+<section class="features">
+    <h2>Why Choose Us?</h2>
+    <div class="feature-grid">
+        <div class="feature">Superb Quality</div>
+        <div class="feature">Different Payment Options</div>
+        <div class="feature">Extra Affordable</div>
+        <div class="feature">Delivered Quickly</div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+        <div class="step">Sign Up</div>
+        <div class="step">Add Funds</div>
+        <div class="step">Select Services</div>
+        <div class="step">Enjoy Results</div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+    <h2>Success Stories</h2>
+    <div class="testimonial">“This is the best solution for affordable social media growth!” – Jane K.</div>
+    <div class="testimonial">“Fast delivery and cheap prices!” – Olivia J.</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq">
+    <h2>Top Questions</h2>
+    <div class="question">What is an SMM panel?</div>
+    <div class="answer">An online platform to buy social media services.</div>
+    <div class="question">Are services safe?</div>
+    <div class="answer">Yes – safe and account friendly.</div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 The Google SMM Clone</p>
+</footer>
+
+</body>
+</html>
+
 

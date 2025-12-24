@@ -77,5 +77,127 @@
 
 </body>
 </html>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #1e1e2f;
+    padding: 15px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header .menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header .menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hero */
+.hero {
+    padding: 60px 20px;
+    text-align: center;
+    background: #4b4b6e;
+    color: white;
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    width: 250px;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+}
+
+.login-form button {
+    padding: 10px 20px;
+    background: #f9c74f;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Features */
+.features {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.feature {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+/* How It Works */
+.how-it-works {
+    padding: 40px 20px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+}
+
+.step {
+    background: #ffbb00;
+    padding: 15px;
+    width: 150px;
+    text-align: center;
+    color: #1e1e1e;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 40px 20px;
+    background: #fff;
+}
+
+.testimonials .testimonial {
+    padding: 10px 0;
+}
+
+/* FAQ */
+.faq {
+    padding: 40px 20px;
+}
+
+.question {
+    font-weight: bold;
+    margin-top: 20px;
+}
 
 
